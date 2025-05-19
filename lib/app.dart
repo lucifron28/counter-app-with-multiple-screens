@@ -42,53 +42,57 @@ class _CounterPageState extends State<CounterPage> {
       _counter--;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.primary,
-          foregroundColor: Theme.of(context).colorScheme.onPrimary,
-          title: const Text('Counter App'),
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        foregroundColor: Theme.of(context).colorScheme.onPrimary,
+        title: const Text('Counter App'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 100.0, horizontal: 16.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Column(
+              children: [
+                Text(
+                  'Counter Value:',
+                  style: Theme.of(context).textTheme.headlineLarge,
+                ),
+                Text(
+                  '$_counter',
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+              ],
+            ),
+            const Spacer(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: incrementCounter,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    foregroundColor: Colors.white,
+                  ),
+                  child: Text('Increment'),
+                ),
+                ElevatedButton(
+                  onPressed: decrementCounter,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red,
+                    foregroundColor: Colors.white,
+                  ),
+                  child: Text('Decrement'),
+                ),
+              ],
+            ),
+            const Spacer(flex: 3),
+          ],
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Counter Value:',
-                style: Theme.of(context).textTheme.headlineLarge,
-              ),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(width: 16),
-                  ElevatedButton(
-                    onPressed: incrementCounter,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.green,
-                      foregroundColor: Colors.white,
-                    ),
-                    child: Text('Increment'),
-                  ),
-                  SizedBox(width: 16),
-                  ElevatedButton(
-                    onPressed: decrementCounter,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
-                      foregroundColor: Colors.white,
-                    ),
-                    child: Text('Decrement'),
-                  ),
-                ],
-              ),
-            ],
-            ), 
-          ),
       ),
     );
   }
