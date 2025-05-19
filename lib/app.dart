@@ -29,6 +29,19 @@ class CounterPage extends StatefulWidget {
 }
 
 class _CounterPageState extends State<CounterPage> {
+  int _counter = 0;
+
+  void incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  void decrementCounter() {
+    setState(() {
+      _counter--;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
