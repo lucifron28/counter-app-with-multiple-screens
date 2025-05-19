@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:ui';
+import 'history.dart';
 
 class CounterApp extends StatelessWidget {
   CounterApp({super.key});
@@ -8,6 +8,7 @@ class CounterApp extends StatelessWidget {
     seedColor: Colors.blue,
     primary: Colors.blue,
     secondary: Colors.green,
+    tertiary: Colors.white,
   );
 
   @override
@@ -28,18 +29,22 @@ class CounterPage extends StatefulWidget {
   State<CounterPage> createState() => _CounterPageState();
 }
 
+List<String> history = [];
+
 class _CounterPageState extends State<CounterPage> {
   int _counter = 0;
 
   void incrementCounter() {
     setState(() {
       _counter++;
+      history.add('Counter Inceremented: $_counter');
     });
   }
 
   void decrementCounter() {
     setState(() {
       _counter--;
+      history.add('Counter Decremented: $_counter');
     });
   }
 
@@ -50,6 +55,16 @@ class _CounterPageState extends State<CounterPage> {
         backgroundColor: Theme.of(context).colorScheme.primary,
         foregroundColor: Theme.of(context).colorScheme.onPrimary,
         title: const Text('Counter App'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.history),
+            onPressed:
+                () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CounterHistory()),
+                ),
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 100.0, horizontal: 16.0),
