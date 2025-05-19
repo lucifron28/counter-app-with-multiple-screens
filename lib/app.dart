@@ -51,7 +51,44 @@ class _CounterPageState extends State<CounterPage> {
           foregroundColor: Theme.of(context).colorScheme.onPrimary,
           title: const Text('Counter App'),
         ),
-        body: const Center(child: Text('Hello World!')),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Counter Value:',
+                style: Theme.of(context).textTheme.headlineLarge,
+              ),
+              Text(
+                '$_counter',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(width: 16),
+                  ElevatedButton(
+                    onPressed: incrementCounter,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green,
+                      foregroundColor: Colors.white,
+                    ),
+                    child: Text('Increment'),
+                  ),
+                  SizedBox(width: 16),
+                  ElevatedButton(
+                    onPressed: decrementCounter,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      foregroundColor: Colors.white,
+                    ),
+                    child: Text('Decrement'),
+                  ),
+                ],
+              ),
+            ],
+            ), 
+          ),
       ),
     );
   }
