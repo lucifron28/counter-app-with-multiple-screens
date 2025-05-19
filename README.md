@@ -14,7 +14,7 @@ The goal is to progressively improve my skills by building real apps and experim
 
 ### Beginner Projects
 
-1. **~Counter App with Multiple Screens~** _(Done)_
+1. **~Counter App with Multiple Screens~** _(Current Repo)_ _(Done)_
 
    - A simple counter app demonstrating stateful widgets and navigation.
 
