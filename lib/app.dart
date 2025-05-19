@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
+import 'dart:ui';
 
 class CounterApp extends StatelessWidget {
-  const CounterApp({super.key});
+  CounterApp({super.key});
+
+  final ColorScheme colorScheme = ColorScheme.fromSeed(
+    seedColor: Colors.blue,
+    primary: Colors.blue,
+    secondary: Colors.green,
+  );
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Counter App',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(colorScheme: colorScheme, useMaterial3: true),
       home: const CounterPage(),
     );
   }
@@ -26,11 +34,11 @@ class _CounterPageState extends State<CounterPage> {
     return Scaffold(
       body: Scaffold(
         appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          foregroundColor: Theme.of(context).colorScheme.onPrimary,
           title: const Text('Counter App'),
         ),
-        body: const Center(
-          child: Text('Hello World!'),
-        ),
+        body: const Center(child: Text('Hello World!')),
       ),
     );
   }
