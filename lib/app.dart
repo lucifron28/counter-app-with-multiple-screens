@@ -37,7 +37,7 @@ class _CounterPageState extends State<CounterPage> {
   void incrementCounter() {
     setState(() {
       _counter++;
-      history.add('Counter Inceremented: $_counter');
+      history.add('Counter Incremented: $_counter');
     });
   }
 

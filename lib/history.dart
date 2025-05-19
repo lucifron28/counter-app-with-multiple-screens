@@ -16,8 +16,21 @@ class CounterHistory extends StatelessWidget {
       body: ListView.builder(
         itemCount: history.length,
         itemBuilder: (context, index) {
-          final value = history[index];
-          return ListTile(title: Text(value));
+          final reversedHistory = history.reversed.toList();
+          final value = reversedHistory[index];
+          return ListTile(
+            title: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              child: Container(
+                padding:EdgeInsets.all(8.0),
+                color:
+                    reversedHistory[index].contains('Incremented')
+                        ? Colors.greenAccent
+                        : Colors.redAccent,
+                child: Text(value),
+              ),
+            ),
+          );
         },
       ),
     );
